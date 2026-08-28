@@ -6,41 +6,145 @@ Subnet is 10.10.110.0/24
 Host discovery:
 
 ```bash
-[kali@gremlins] [26AUG25|13:55] [~] $> nmap 10.10.110.0/24 -sn
-Starting Nmap 7.99 ( https://nmap.org ) at 2026-08-25 14:04 -0400
-Nmap scan report for 10.10.110.2
-Host is up (0.028s latency).
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-08-28 09:10 EDT
 Nmap scan report for 10.10.110.3
-Host is up (0.031s latency).
+Host is up (0.0071s latency).
+Not shown: 988 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+53/tcp   open  domain
+88/tcp   open  kerberos-sec
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+389/tcp  open  ldap
+445/tcp  open  microsoft-ds
+464/tcp  open  kpasswd5
+593/tcp  open  http-rpc-epmap
+636/tcp  open  ldapssl
+3268/tcp open  globalcatLDAP
+3269/tcp open  globalcatLDAPssl
+5985/tcp open  wsman
+
 Nmap scan report for 10.10.110.5
-Host is up (0.031s latency).
+Host is up (0.0071s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+5985/tcp open  wsman
+
 Nmap scan report for 10.10.110.10
-Host is up (0.032s latency).
+Host is up (0.0074s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+3306/tcp open  mysql
+
 Nmap scan report for 10.10.110.12
-Host is up (0.031s latency).
+Host is up (0.0089s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+21/tcp open  ftp
+22/tcp open  ssh
+80/tcp open  http
+
 Nmap scan report for 10.10.110.20
-Host is up (0.039s latency).
+Host is up (0.0097s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT    STATE SERVICE
+21/tcp  open  ftp
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
 Nmap scan report for 10.10.110.25
-Host is up (0.033s latency).
+Host is up (0.0070s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+5985/tcp open  wsman
+
 Nmap scan report for 10.10.110.45
-Host is up (0.036s latency).
+Host is up (0.0070s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
 Nmap scan report for 10.10.110.58
-Host is up (0.035s latency).
+Host is up (0.0085s latency).
+Not shown: 995 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+1433/tcp open  ms-sql-s
+5985/tcp open  wsman
+
 Nmap scan report for 10.10.110.60
-Host is up (0.031s latency).
+Host is up (0.0090s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
 Nmap scan report for 10.10.110.78
-Host is up (0.033s latency).
+Host is up (0.0070s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+6123/tcp open  backup-express
+8081/tcp open  blackice-icecap
+
 Nmap scan report for 10.10.110.102
-Host is up (0.035s latency).
+Host is up (0.0069s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+8080/tcp open  http-proxy
+
 Nmap scan report for 10.10.110.119
-Host is up (0.029s latency).
+Host is up (0.0090s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+21/tcp open  ftp
+22/tcp open  ssh
+80/tcp open  http
+
 Nmap scan report for 10.10.110.205
-Host is up (0.035s latency).
+Host is up (0.0093s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
 Nmap scan report for 10.10.110.213
-Host is up (0.034s latency).
+Host is up (0.0070s latency).
+Not shown: 987 closed tcp ports (conn-refused)
+PORT      STATE SERVICE
+80/tcp    open  http
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+443/tcp   open  https
+445/tcp   open  microsoft-ds
+5985/tcp  open  wsman
+49152/tcp open  unknown
+49153/tcp open  unknown
+49154/tcp open  unknown
+49155/tcp open  unknown
+49156/tcp open  unknown
+49157/tcp open  unknown
+49160/tcp open  unknown
+
 Nmap scan report for 10.10.110.254
-Host is up (0.029s latency).
-Nmap done: 256 IP addresses (16 hosts up) scanned in 5.20 seconds
+Host is up (0.0080s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+53/tcp open  domain
+80/tcp open  http
+
 ```
 
 | Host            | IP   |
@@ -374,17 +478,86 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 - Apache Flink 1.11.0 has unauthenticated file read on metasploit
 - Apache Spark has a rce cve on metasploit
-- Obtain shell with metasploit, grab ssh key
+- Obtain shell with metasploit, grab ssh key from /home/ipp/.ssh/id_rsa
+
+- Root was obtained by running pspy
+- root creds were found in crontab
+- CREDS root:P455w0rd666!
+
+
+### 10.10.110.102
 
 ```text
-1   exploit/linux/local/cve_2022_0847_dirtypipe                         Yes                      The target appears to be vulnerable. Linux kernel version found: 5.15.0                                                                   
- 2   exploit/linux/local/cve_2022_0995_watch_queue                       Yes                      The target appears to be vulnerable.                                                                                                      
- 3   exploit/linux/local/cve_2023_0386_overlayfs_priv_esc                Yes                      The target appears to be vulnerable. Linux kernel version found: 5.15.0                                                                   
- 4   exploit/linux/local/netfilter_nft_set_elem_init_privesc             Yes                      The target appears to be vulnerable.                                                                                                      
- 5   exploit/linux/local/su_login                                        Yes                      The target appears to be vulnerable.                                                                                                      
- 6   exploit/linux/local/ubuntu_needrestart_lpe                          Yes                      The target appears to be vulnerable. Vulnerable needrestart version 3.5.pre.5ubuntu2.1 detected on Ubuntu 22.04                           
- 7   exploit/linux/persistence/bash_profile                              Yes                      The service is running, but could not be validated. Bash profile exists and is writable: /home/ipp/.bashrc                                
- 8   exploit/linux/persistence/init_systemd                              Yes                      The target appears to be vulnerable. /tmp/ is writable and system is systemd based                                                        
- 9   exploit/multi/persistence/cron                                      Yes                      The target appears to be vulnerable. Cron timing is valid, no cron.deny entries found
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-08-28 09:00 EDT
+Nmap scan report for 10.10.110.102
+Host is up (0.012s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA)
+|_  256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519)
+8080/tcp open  http    Jetty 9.4.z-SNAPSHOT
+|_http-title: Dashboard [Jenkins]
+|_http-server-header: Jetty(9.4.z-SNAPSHOT)
+| http-robots.txt: 1 disallowed entry 
+|_/
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
+- jenkins version 2.63 has sandbox bypass CVE-2019-1003030
+- appears to need login first
+
+### 10.10.110.119
+
+```text
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-08-28 09:40 EDT
+Nmap scan report for 10.10.110.119
+Host is up (0.0086s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.5
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 05:8e:c4:bc:0f:22:b1:83:1e:4f:de:2c:37:24:cf:cd (ECDSA)
+|_  256 21:0b:b8:43:3b:7a:63:41:54:6f:07:88:26:a3:61:3c (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-title: Genesis Security &#8211; All things Genesis
+|_http-generator: WordPress 5.7
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 10.04 seconds
+
+```
+
+- /?p=15 reveals php named "lLoMbniRa"
+- no login from ftp or wpadmin page yet
+- discovered ekat user
+- nothing interesting on feroxbuster
+
+### 10.10.110.205
+
+```text
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-08-28 10:15 EDT
+Nmap scan report for 10.10.110.205
+Host is up (0.0078s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 8e:79:8a:89:64:3a:ab:16:c0:70:c5:f0:77:b5:3a:8e (ECDSA)
+|_  256 8a:1d:e9:f9:8e:c8:7c:b9:28:27:6f:a6:25:77:4d:3d (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+|_http-title: Genesis Blog
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.89 seconds
+```
+
+- LFI at http://10.10.110.205/blog.php?article=../../../../../etc/passwd
+- test RFI
+- 
