@@ -1,0 +1,12 @@
+[Unit]
+Description=x11vnc remote desktop
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -display :1 -auth /run/user/1000/gdm/Xauthority -forever -rfbauth /etc/x11vnc.pass -rfbport 5900 -noshm
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target
