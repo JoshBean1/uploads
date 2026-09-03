@@ -4,7 +4,7 @@ After=graphical.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/x11vnc -display :1 -auth /run/user/1000/gdm/Xauthority -forever -rfbauth /etc/x11vnc.pass -rfbport 5900 -noshm
+ExecStart=/usr/bin/x11vnc -display :1 -auth /home/kali/.Xauthority -forever -rfbauth /etc/x11vnc.pass -rfbport 5900 -noshm
 Restart=on-failure
 RestartSec=5
 
